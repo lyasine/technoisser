@@ -67,70 +67,80 @@ class _RequestsScreenWidgetState extends State<RequestsScreenWidget> {
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
-          child: StreamBuilder<List<PostsRecord>>(
-            stream: queryPostsRecord(),
-            builder: (context, snapshot) {
-              // Customize what your widget looks like when it's loading.
-              if (!snapshot.hasData) {
-                return Center(
-                  child: SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: CircularProgressIndicator(
-                      color: FlutterFlowTheme.primaryColor,
-                    ),
-                  ),
-                );
-              }
-              List<PostsRecord> listViewPostsRecordList = snapshot.data;
-              return ListView.builder(
-                padding: EdgeInsets.zero,
-                scrollDirection: Axis.vertical,
-                itemCount: listViewPostsRecordList.length,
-                itemBuilder: (context, listViewIndex) {
-                  final listViewPostsRecord =
-                      listViewPostsRecordList[listViewIndex];
-                  return Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
-                    child: Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: Color(0xFFF5F5F5),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            listViewPostsRecord.title,
-                            style: FlutterFlowTheme.title1,
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 20, 0),
-                                  child: Text(
-                                    listViewPostsRecord.phone,
-                                    style: FlutterFlowTheme.bodyText1,
-                                  ),
-                                ),
-                                Text(
-                                  listViewPostsRecord.email,
-                                  style: FlutterFlowTheme.bodyText1,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+            child: StreamBuilder<List<PostsRecord>>(
+              stream: queryPostsRecord(),
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: CircularProgressIndicator(
+                        color: FlutterFlowTheme.primaryColor,
                       ),
                     ),
                   );
-                },
-              );
-            },
+                }
+                List<PostsRecord> listViewPostsRecordList = snapshot.data;
+                return ListView.builder(
+                  padding: EdgeInsets.zero,
+                  scrollDirection: Axis.vertical,
+                  itemCount: listViewPostsRecordList.length,
+                  itemBuilder: (context, listViewIndex) {
+                    final listViewPostsRecord =
+                        listViewPostsRecordList[listViewIndex];
+                    return Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                      child: Card(
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        color: Color(0xFFF5F5F5),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              listViewPostsRecord.title,
+                              style: FlutterFlowTheme.title1,
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 20, 0),
+                                    child: Text(
+                                      listViewPostsRecord.phone,
+                                      style:
+                                          FlutterFlowTheme.bodyText1.override(
+                                        fontFamily: 'Poppins',
+                                        color: FlutterFlowTheme.secondaryColor,
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    listViewPostsRecord.email,
+                                    style: FlutterFlowTheme.bodyText1.override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.primaryColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
           ),
         ),
       ),
