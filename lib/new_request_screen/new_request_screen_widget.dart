@@ -1,10 +1,12 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
+import '../backend/firebase_storage/storage.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../flutter_flow/upload_media.dart';
 import '../main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +26,7 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
   TextEditingController textController3;
   TextEditingController textController4;
   TextEditingController textController5;
+  String uploadedFileUrl = '';
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -338,43 +341,96 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
                           style: FlutterFlowTheme.bodyText1,
                         ),
                       ),
-                      FFButtonWidget(
-                        onPressed: () async {
-                          final postsCreateData = createPostsRecordData(
-                            title: textController1.text,
-                            description: textController2.text,
-                            createDate: getCurrentTimestamp,
-                            phone: textController3.text,
-                            email: textController4.text,
-                            name: textController5.text,
-                            type: newRequestScreenRequestTypesRecord.reference,
-                          );
-                          await PostsRecord.collection
-                              .doc()
-                              .set(postsCreateData);
-                          await Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  NavBarPage(initialPage: 'RequestsScreen'),
+                      Container(
+                        width: double.infinity,
+                        height: 200,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFEEEEEE),
+                        ),
+                        child: InkWell(
+                          onTap: () async {
+                            final selectedMedia =
+                                await selectMediaWithSourceBottomSheet(
+                              context: context,
+                              allowPhoto: true,
+                            );
+                            if (selectedMedia != null &&
+                                validateFileFormat(
+                                    selectedMedia.storagePath, context)) {
+                              showUploadMessage(
+                                context,
+                                'Uploading file...',
+                                showLoading: true,
+                              );
+                              final downloadUrl = await uploadData(
+                                  selectedMedia.storagePath,
+                                  selectedMedia.bytes);
+                              ScaffoldMessenger.of(context)
+                                  .hideCurrentSnackBar();
+                              if (downloadUrl != null) {
+                                setState(() => uploadedFileUrl = downloadUrl);
+                                showUploadMessage(
+                                  context,
+                                  'Success!',
+                                );
+                              } else {
+                                showUploadMessage(
+                                  context,
+                                  'Failed to upload media',
+                                );
+                                return;
+                              }
+                            }
+                          },
+                          child: Image.network(
+                            'https://picsum.photos/seed/140/600',
+                            width: 100,
+                            height: 100,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            final postsCreateData = createPostsRecordData(
+                              title: textController1.text,
+                              description: textController2.text,
+                              createDate: getCurrentTimestamp,
+                              phone: textController3.text,
+                              email: textController4.text,
+                              name: textController5.text,
+                              type:
+                                  newRequestScreenRequestTypesRecord.reference,
+                            );
+                            await PostsRecord.collection
+                                .doc()
+                                .set(postsCreateData);
+                            await Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    NavBarPage(initialPage: 'RequestsScreen'),
+                              ),
+                              (r) => false,
+                            );
+                          },
+                          text: 'Save',
+                          options: FFButtonOptions(
+                            width: 130,
+                            height: 40,
+                            color: FlutterFlowTheme.primaryColor,
+                            textStyle: FlutterFlowTheme.subtitle2.override(
+                              fontFamily: 'Poppins',
+                              color: Colors.white,
                             ),
-                            (r) => false,
-                          );
-                        },
-                        text: 'Save',
-                        options: FFButtonOptions(
-                          width: 130,
-                          height: 40,
-                          color: FlutterFlowTheme.primaryColor,
-                          textStyle: FlutterFlowTheme.subtitle2.override(
-                            fontFamily: 'Poppins',
-                            color: Colors.white,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1,
+                            ),
+                            borderRadius: 12,
                           ),
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1,
-                          ),
-                          borderRadius: 12,
                         ),
                       ),
                     ],
