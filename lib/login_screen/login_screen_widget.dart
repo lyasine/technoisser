@@ -49,7 +49,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                     children: [
                       Expanded(
                         child: Image.asset(
-                          'assets/images/technologo-200x50.png',
+                          'assets/images/technoisser-logo.png',
                           width: double.infinity,
                           height: 100,
                           fit: BoxFit.contain,
@@ -298,21 +298,16 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                             size: 20,
                           ),
                           onPressed: () async {
-                            if (currentUserEmailVerified) {
-                              final user = await signInWithGoogle(context);
-                              if (user == null) {
-                                return;
-                              }
+                            final user = await signInWithGoogle(context);
+                            if (user == null) {
+                              return;
                             }
-                            if (currentUserEmailVerified) {
-                              await Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => LoginScreenWidget(),
-                                ),
-                                (r) => false,
-                              );
-                            }
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HomeScreenWidget(),
+                              ),
+                            );
                           },
                         ),
                       ],
