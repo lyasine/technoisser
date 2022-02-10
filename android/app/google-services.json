@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "12471644395",
+    "project_id": "technoisser",
+    "storage_bucket": "technoisser.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12471644395:android:52709c370cd27bdcefceae",
+        "android_client_info": {
+          "package_name": "net.tsolutions.technoisser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "12471644395-uij5v2mh2hjlr76iarg3s4mc7lqgn5e0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.tsolutions.technoisser",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "12471644395-7g1pnp7i75l1t7vuotm1davttqv1ko45.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzFMXfg5qbNrLI1naTMXO7rU5bHK6c6dY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "12471644395-7g1pnp7i75l1t7vuotm1davttqv1ko45.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "12471644395-30obftv30sh9va8dk88l8qk8jhl70jrf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "net.tsolutions.technoisser"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
