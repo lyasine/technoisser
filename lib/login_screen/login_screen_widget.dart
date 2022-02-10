@@ -94,15 +94,6 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                               color: Color(0xFFF1F4F8),
                             ),
                             alignment: AlignmentDirectional(-1, 0),
-                            child: Text(
-                              'Sign Up',
-                              style: FlutterFlowTheme.title2.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Color(0xFF95A1AC),
-                                fontSize: 28,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
                           ),
                         ),
                       ],
@@ -114,7 +105,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Get started by creating an account below.',
+                          'Get started by login into TechnoIsser App',
                           style: FlutterFlowTheme.bodyText2.override(
                             fontFamily: 'Lexend Deca',
                             color: Color(0xFF57636C),

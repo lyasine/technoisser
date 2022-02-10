@@ -1,7 +1,10 @@
+import '../auth/auth_util.dart';
+import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../post_screen/post_screen_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreenWidget extends StatefulWidget {
@@ -104,6 +107,27 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                           ),
                         ],
                       ),
+                    ),
+                    FlutterFlowIconButton(
+                      borderColor: Colors.transparent,
+                      borderRadius: 30,
+                      borderWidth: 1,
+                      buttonSize: 60,
+                      icon: FaIcon(
+                        FontAwesomeIcons.signOutAlt,
+                        color: Colors.black,
+                        size: 30,
+                      ),
+                      onPressed: () async {
+                        await signOut();
+                        await Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomeScreenWidget(),
+                          ),
+                          (r) => false,
+                        );
+                      },
                     ),
                   ],
                 ),
