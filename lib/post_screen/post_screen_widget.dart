@@ -1,3 +1,4 @@
+import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -28,23 +29,71 @@ class _PostScreenWidgetState extends State<PostScreenWidget> {
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
-          child: ListView(
-            padding: EdgeInsets.zero,
-            scrollDirection: Axis.vertical,
-            children: [
-              Card(
-                clipBehavior: Clip.antiAliasWithSaveLayer,
-                color: Color(0xFFF5F5F5),
-                child: Text(
-                  'Hello World',
-                  style: FlutterFlowTheme.title1,
-                ),
-              ),
-              Text(
-                'Hello World',
-                style: FlutterFlowTheme.bodyText1,
-              ),
-            ],
+          child: StreamBuilder<List<PostsRecord>>(
+            stream: queryPostsRecord(),
+            builder: (context, snapshot) {
+              // Customize what your widget looks like when it's loading.
+              if (!snapshot.hasData) {
+                return Center(
+                  child: SizedBox(
+                    width: 50,
+                    height: 50,
+                    child: CircularProgressIndicator(
+                      color: FlutterFlowTheme.primaryColor,
+                    ),
+                  ),
+                );
+              }
+              List<PostsRecord> listViewPostsRecordList = snapshot.data;
+              return ListView.builder(
+                padding: EdgeInsets.zero,
+                scrollDirection: Axis.vertical,
+                itemCount: listViewPostsRecordList.length,
+                itemBuilder: (context, listViewIndex) {
+                  final listViewPostsRecord =
+                      listViewPostsRecordList[listViewIndex];
+                  return Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                    child: StreamBuilder<PostsRecord>(
+                      stream: PostsRecord.getDocument(
+                          listViewPostsRecord.reference),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50,
+                              height: 50,
+                              child: CircularProgressIndicator(
+                                color: FlutterFlowTheme.primaryColor,
+                              ),
+                            ),
+                          );
+                        }
+                        final cardPostsRecord = snapshot.data;
+                        return Card(
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          color: Color(0xFFF5F5F5),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                                child: Text(
+                                  'Hello World',
+                                  style: FlutterFlowTheme.title1,
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                },
+              );
+            },
           ),
         ),
       ),

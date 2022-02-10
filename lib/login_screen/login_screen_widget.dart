@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../post_screen/post_screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -77,20 +78,30 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                             ),
                           ),
                         ),
-                        Container(
-                          width: 140,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFF1F4F8),
-                          ),
-                          alignment: AlignmentDirectional(-1, 0),
-                          child: Text(
-                            'Sign Up',
-                            style: FlutterFlowTheme.title2.override(
-                              fontFamily: 'Lexend Deca',
-                              color: Color(0xFF95A1AC),
-                              fontSize: 28,
-                              fontWeight: FontWeight.w500,
+                        InkWell(
+                          onTap: () async {
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PostScreenWidget(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            width: 140,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFF1F4F8),
+                            ),
+                            alignment: AlignmentDirectional(-1, 0),
+                            child: Text(
+                              'Sign Up',
+                              style: FlutterFlowTheme.title2.override(
+                                fontFamily: 'Lexend Deca',
+                                color: Color(0xFF95A1AC),
+                                fontSize: 28,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
                         ),
@@ -294,56 +305,6 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                           ),
                           onPressed: () async {
                             final user = await signInWithGoogle(context);
-                            if (user == null) {
-                              return;
-                            }
-                            await Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LoginScreenWidget(),
-                              ),
-                              (r) => false,
-                            );
-                          },
-                        ),
-                        FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 30,
-                          borderWidth: 1,
-                          buttonSize: 50,
-                          fillColor: Color(0xFFDBE2E7),
-                          icon: FaIcon(
-                            FontAwesomeIcons.apple,
-                            color: Color(0xFF57636C),
-                            size: 20,
-                          ),
-                          onPressed: () async {
-                            final user = await signInWithApple(context);
-                            if (user == null) {
-                              return;
-                            }
-                            await Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LoginScreenWidget(),
-                              ),
-                              (r) => false,
-                            );
-                          },
-                        ),
-                        FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 30,
-                          borderWidth: 1,
-                          buttonSize: 50,
-                          fillColor: Color(0xFFDBE2E7),
-                          icon: FaIcon(
-                            FontAwesomeIcons.facebookF,
-                            color: Color(0xFF57636C),
-                            size: 20,
-                          ),
-                          onPressed: () async {
-                            final user = await signInWithFacebook(context);
                             if (user == null) {
                               return;
                             }
