@@ -2,6 +2,7 @@ import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../new_request_screen/new_request_screen_widget.dart';
+import '../request_details_screen/request_details_screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -46,7 +47,7 @@ class _RequestsScreenWidgetState extends State<RequestsScreenWidget> {
         centerTitle: true,
         elevation: 4,
       ),
-      backgroundColor: Color(0xFFF5F5F5),
+      backgroundColor: Color(0xFFFAFAFA),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           await Navigator.push(
@@ -94,46 +95,61 @@ class _RequestsScreenWidgetState extends State<RequestsScreenWidget> {
                         listViewPostsRecordList[listViewIndex];
                     return Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
-                      child: Card(
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        color: Color(0xFFF5F5F5),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              listViewPostsRecord.title,
-                              style: FlutterFlowTheme.title1,
+                      child: InkWell(
+                        onTap: () async {
+                          await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => RequestDetailsScreenWidget(
+                                requestDetail: listViewPostsRecord.reference,
+                              ),
                             ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 20, 0),
-                                    child: Text(
-                                      listViewPostsRecord.phone,
+                          );
+                        },
+                        child: Card(
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          color: Color(0xFFFAFAFA),
+                          elevation: 7,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                listViewPostsRecord.title,
+                                style: FlutterFlowTheme.title1,
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 20, 0),
+                                      child: Text(
+                                        listViewPostsRecord.phone,
+                                        style:
+                                            FlutterFlowTheme.bodyText1.override(
+                                          fontFamily: 'Poppins',
+                                          color:
+                                              FlutterFlowTheme.secondaryColor,
+                                        ),
+                                      ),
+                                    ),
+                                    Text(
+                                      listViewPostsRecord.email,
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
                                         fontFamily: 'Poppins',
-                                        color: FlutterFlowTheme.secondaryColor,
+                                        color: FlutterFlowTheme.primaryColor,
                                       ),
                                     ),
-                                  ),
-                                  Text(
-                                    listViewPostsRecord.email,
-                                    style: FlutterFlowTheme.bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: FlutterFlowTheme.primaryColor,
-                                    ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     );
