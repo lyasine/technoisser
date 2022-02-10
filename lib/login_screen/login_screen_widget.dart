@@ -4,7 +4,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../home_screen/home_screen_widget.dart';
-import '../requests_screen/requests_screen_widget.dart';
+import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -84,7 +84,8 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                             await Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => RequestsScreenWidget(),
+                                builder: (context) =>
+                                    NavBarPage(initialPage: 'RequestsScreen'),
                               ),
                             );
                           },

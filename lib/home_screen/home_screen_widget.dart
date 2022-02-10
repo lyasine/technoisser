@@ -3,7 +3,7 @@ import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../login_screen/login_screen_widget.dart';
-import '../requests_screen/requests_screen_widget.dart';
+import '../main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -123,11 +123,12 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             4, 0, 0, 0),
                                         child: Text(
-                                          columnUsersRecord.displayName,
+                                          columnUsersRecord.email,
                                           style:
                                               FlutterFlowTheme.title3.override(
                                             fontFamily: 'Lexend Deca',
-                                            color: Color(0xFF00968A),
+                                            color:
+                                                FlutterFlowTheme.primaryColor,
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -334,7 +335,9 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                               context,
                                               MaterialPageRoute(
                                                 builder: (context) =>
-                                                    RequestsScreenWidget(),
+                                                    NavBarPage(
+                                                        initialPage:
+                                                            'RequestsScreen'),
                                               ),
                                             );
                                           },
@@ -407,7 +410,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                       child: Card(
                                         clipBehavior:
                                             Clip.antiAliasWithSaveLayer,
-                                        color: Color(0x6639D2C0),
+                                        color: Color(0x6FFF6D00),
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(40),
@@ -418,7 +421,8 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                                   8, 8, 8, 8),
                                           child: Icon(
                                             Icons.monetization_on_rounded,
-                                            color: Color(0xFF39D2C0),
+                                            color:
+                                                FlutterFlowTheme.primaryColor,
                                             size: 24,
                                           ),
                                         ),
@@ -480,7 +484,8 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                             style: FlutterFlowTheme.subtitle2
                                                 .override(
                                               fontFamily: 'Lexend Deca',
-                                              color: Color(0xFF39D2C0),
+                                              color:
+                                                  FlutterFlowTheme.primaryColor,
                                               fontSize: 16,
                                               fontWeight: FontWeight.w500,
                                             ),
@@ -527,7 +532,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                         child: Card(
                                           clipBehavior:
                                               Clip.antiAliasWithSaveLayer,
-                                          color: Color(0x6639D2C0),
+                                          color: Color(0x6FFF6D00),
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(40),
@@ -538,7 +543,8 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                                     8, 8, 8, 8),
                                             child: Icon(
                                               Icons.monetization_on_rounded,
-                                              color: Color(0xFF39D2C0),
+                                              color:
+                                                  FlutterFlowTheme.primaryColor,
                                               size: 24,
                                             ),
                                           ),
@@ -603,7 +609,8 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                               style: FlutterFlowTheme.subtitle2
                                                   .override(
                                                 fontFamily: 'Lexend Deca',
-                                                color: Color(0xFF39D2C0),
+                                                color: FlutterFlowTheme
+                                                    .primaryColor,
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -651,7 +658,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                         child: Card(
                                           clipBehavior:
                                               Clip.antiAliasWithSaveLayer,
-                                          color: Color(0x6639D2C0),
+                                          color: Color(0x6FFF6D00),
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(40),
@@ -662,7 +669,8 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                                     8, 8, 8, 8),
                                             child: Icon(
                                               Icons.monetization_on_rounded,
-                                              color: Color(0xFF39D2C0),
+                                              color:
+                                                  FlutterFlowTheme.primaryColor,
                                               size: 24,
                                             ),
                                           ),
@@ -727,7 +735,8 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                               style: FlutterFlowTheme.subtitle2
                                                   .override(
                                                 fontFamily: 'Lexend Deca',
-                                                color: Color(0xFF39D2C0),
+                                                color: FlutterFlowTheme
+                                                    .primaryColor,
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.w500,
                                               ),
