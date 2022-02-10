@@ -347,47 +347,67 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
                         decoration: BoxDecoration(
                           color: Color(0xFFEEEEEE),
                         ),
-                        child: InkWell(
-                          onTap: () async {
-                            final selectedMedia =
-                                await selectMediaWithSourceBottomSheet(
-                              context: context,
-                              allowPhoto: true,
-                            );
-                            if (selectedMedia != null &&
-                                validateFileFormat(
-                                    selectedMedia.storagePath, context)) {
-                              showUploadMessage(
-                                context,
-                                'Uploading file...',
-                                showLoading: true,
-                              );
-                              final downloadUrl = await uploadData(
-                                  selectedMedia.storagePath,
-                                  selectedMedia.bytes);
-                              ScaffoldMessenger.of(context)
-                                  .hideCurrentSnackBar();
-                              if (downloadUrl != null) {
-                                setState(() => uploadedFileUrl = downloadUrl);
-                                showUploadMessage(
-                                  context,
-                                  'Success!',
-                                );
-                              } else {
-                                showUploadMessage(
-                                  context,
-                                  'Failed to upload media',
-                                );
-                                return;
-                              }
-                            }
-                          },
-                          child: Image.network(
-                            'https://picsum.photos/seed/140/600',
-                            width: 100,
-                            height: 100,
-                            fit: BoxFit.cover,
-                          ),
+                        child: Stack(
+                          children: [
+                            Image.network(
+                              uploadedFileUrl,
+                              width: double.infinity,
+                              height: double.infinity,
+                              fit: BoxFit.cover,
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0, 0),
+                              child: FlutterFlowIconButton(
+                                borderColor: Colors.transparent,
+                                borderRadius: 30,
+                                borderWidth: 1,
+                                buttonSize: 60,
+                                icon: Icon(
+                                  Icons.image_outlined,
+                                  color: Color(0x81000000),
+                                  size: 30,
+                                ),
+                                onPressed: () async {
+                                  final selectedMedia =
+                                      await selectMediaWithSourceBottomSheet(
+                                    context: context,
+                                    allowPhoto: true,
+                                    backgroundColor:
+                                        FlutterFlowTheme.tertiaryColor,
+                                    textColor: Color(0xFF1B1412),
+                                  );
+                                  if (selectedMedia != null &&
+                                      validateFileFormat(
+                                          selectedMedia.storagePath, context)) {
+                                    showUploadMessage(
+                                      context,
+                                      'Uploading file...',
+                                      showLoading: true,
+                                    );
+                                    final downloadUrl = await uploadData(
+                                        selectedMedia.storagePath,
+                                        selectedMedia.bytes);
+                                    ScaffoldMessenger.of(context)
+                                        .hideCurrentSnackBar();
+                                    if (downloadUrl != null) {
+                                      setState(
+                                          () => uploadedFileUrl = downloadUrl);
+                                      showUploadMessage(
+                                        context,
+                                        'Success!',
+                                      );
+                                    } else {
+                                      showUploadMessage(
+                                        context,
+                                        'Failed to upload media',
+                                      );
+                                      return;
+                                    }
+                                  }
+                                },
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       Padding(
