@@ -247,7 +247,9 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                         await Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomeScreenWidget(),
+                            builder: (context) => HomeScreenWidget(
+                              userDetails: currentUserReference,
+                            ),
                           ),
                           (r) => false,
                         );
@@ -305,7 +307,9 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                             await Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => HomeScreenWidget(),
+                                builder: (context) => HomeScreenWidget(
+                                  userDetails: currentUserReference,
+                                ),
                               ),
                             );
                           },
