@@ -1,9 +1,8 @@
 import '../auth/auth_util.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../login_screen/login_screen_widget.dart';
-import '../post_screen/post_screen_widget.dart';
+import '../requests_screen/requests_screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -108,27 +107,6 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                           ),
                         ],
                       ),
-                    ),
-                    FlutterFlowIconButton(
-                      borderColor: Colors.transparent,
-                      borderRadius: 30,
-                      borderWidth: 1,
-                      buttonSize: 60,
-                      icon: FaIcon(
-                        FontAwesomeIcons.signOutAlt,
-                        color: Colors.black,
-                        size: 30,
-                      ),
-                      onPressed: () async {
-                        await signOut();
-                        await Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HomeScreenWidget(),
-                          ),
-                          (r) => false,
-                        );
-                      },
                     ),
                   ],
                 ),
@@ -405,7 +383,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            PostScreenWidget(),
+                                            RequestsScreenWidget(),
                                       ),
                                     );
                                   },
@@ -414,7 +392,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Icon(
-                                        Icons.account_balance_outlined,
+                                        Icons.hearing_rounded,
                                         color: Color(0xFF1E2429),
                                         size: 40,
                                       ),
@@ -422,7 +400,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 8, 0, 0),
                                         child: Text(
-                                          'Home',
+                                          'Requests',
                                           style: FlutterFlowTheme.bodyText1
                                               .override(
                                             fontFamily: 'Lexend Deca',

@@ -1,17 +1,18 @@
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../new_request_screen/new_request_screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class PostScreenWidget extends StatefulWidget {
-  const PostScreenWidget({Key key}) : super(key: key);
+class RequestsScreenWidget extends StatefulWidget {
+  const RequestsScreenWidget({Key key}) : super(key: key);
 
   @override
-  _PostScreenWidgetState createState() => _PostScreenWidgetState();
+  _RequestsScreenWidgetState createState() => _RequestsScreenWidgetState();
 }
 
-class _PostScreenWidgetState extends State<PostScreenWidget> {
+class _RequestsScreenWidgetState extends State<RequestsScreenWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -21,18 +22,48 @@ class _PostScreenWidgetState extends State<PostScreenWidget> {
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.primaryColor,
         automaticallyImplyLeading: true,
-        title: Text(
-          'All Posts',
-          style: FlutterFlowTheme.title1.override(
-            fontFamily: 'Poppins',
-            color: FlutterFlowTheme.tertiaryColor,
-          ),
+        title: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+              child: Icon(
+                Icons.hearing_outlined,
+                color: FlutterFlowTheme.tertiaryColor,
+                size: 30,
+              ),
+            ),
+            Text(
+              'All Requests',
+              style: FlutterFlowTheme.title1.override(
+                fontFamily: 'Poppins',
+                color: FlutterFlowTheme.tertiaryColor,
+              ),
+            ),
+          ],
         ),
         actions: [],
         centerTitle: true,
         elevation: 4,
       ),
       backgroundColor: Color(0xFFF5F5F5),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => NewRequestScreenWidget(),
+            ),
+          );
+        },
+        backgroundColor: FlutterFlowTheme.primaryColor,
+        elevation: 8,
+        child: Icon(
+          Icons.add,
+          color: FlutterFlowTheme.tertiaryColor,
+          size: 24,
+        ),
+      ),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
