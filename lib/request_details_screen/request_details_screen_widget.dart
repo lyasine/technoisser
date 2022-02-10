@@ -24,8 +24,8 @@ class _RequestDetailsScreenWidgetState
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<PostsRecord>(
-      future: PostsRecord.getDocumentOnce(widget.requestDetail),
+    return StreamBuilder<PostsRecord>(
+      stream: PostsRecord.getDocument(widget.requestDetail),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -209,8 +209,8 @@ class _RequestDetailsScreenWidgetState
                         child: Card(
                           clipBehavior: Clip.antiAliasWithSaveLayer,
                           color: Color(0xFFF5F5F5),
-                          child: FutureBuilder<RequestTypesRecord>(
-                            future: RequestTypesRecord.getDocumentOnce(
+                          child: StreamBuilder<RequestTypesRecord>(
+                            stream: RequestTypesRecord.getDocument(
                                 requestDetailsScreenPostsRecord.type),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
