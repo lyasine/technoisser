@@ -6,6 +6,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 
 import 'schema/users_record.dart';
 import 'schema/posts_record.dart';
+import 'schema/request_types_record.dart';
 import 'schema/serializers.dart';
 
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -14,6 +15,7 @@ export 'schema/serializers.dart';
 
 export 'schema/users_record.dart';
 export 'schema/posts_record.dart';
+export 'schema/request_types_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Stream<List<UsersRecord>> queryUsersRecord(
@@ -43,6 +45,23 @@ Future<List<PostsRecord>> queryPostsRecordOnce(
         int limit = -1,
         bool singleRecord = false}) =>
     queryCollectionOnce(PostsRecord.collection, PostsRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+/// Functions to query RequestTypesRecords (as a Stream and as a Future).
+Stream<List<RequestTypesRecord>> queryRequestTypesRecord(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollection(
+        RequestTypesRecord.collection, RequestTypesRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+Future<List<RequestTypesRecord>> queryRequestTypesRecordOnce(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollectionOnce(
+        RequestTypesRecord.collection, RequestTypesRecord.serializer,
         queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
 
 Stream<List<T>> queryCollection<T>(

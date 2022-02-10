@@ -29,6 +29,9 @@ abstract class PostsRecord implements Built<PostsRecord, PostsRecordBuilder> {
   String get name;
 
   @nullable
+  DocumentReference get type;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -67,6 +70,7 @@ Map<String, dynamic> createPostsRecordData({
   String phone,
   String email,
   String name,
+  DocumentReference type,
 }) =>
     serializers.toFirestore(
         PostsRecord.serializer,
@@ -76,4 +80,5 @@ Map<String, dynamic> createPostsRecordData({
           ..createDate = createDate
           ..phone = phone
           ..email = email
-          ..name = name));
+          ..name = name
+          ..type = type));
