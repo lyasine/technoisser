@@ -54,41 +54,39 @@ class _PostScreenWidgetState extends State<PostScreenWidget> {
                       listViewPostsRecordList[listViewIndex];
                   return Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
-                    child: StreamBuilder<PostsRecord>(
-                      stream: PostsRecord.getDocument(
-                          listViewPostsRecord.reference),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50,
-                              height: 50,
-                              child: CircularProgressIndicator(
-                                color: FlutterFlowTheme.primaryColor,
-                              ),
-                            ),
-                          );
-                        }
-                        final cardPostsRecord = snapshot.data;
-                        return Card(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          color: Color(0xFFF5F5F5),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
-                                child: Text(
-                                  'Hello World',
-                                  style: FlutterFlowTheme.title1,
-                                ),
-                              ),
-                            ],
+                    child: Card(
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      color: Color(0xFFF5F5F5),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text(
+                            listViewPostsRecord.title,
+                            style: FlutterFlowTheme.title1,
                           ),
-                        );
-                      },
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 0, 20, 0),
+                                  child: Text(
+                                    listViewPostsRecord.phone,
+                                    style: FlutterFlowTheme.bodyText1,
+                                  ),
+                                ),
+                                Text(
+                                  listViewPostsRecord.email,
+                                  style: FlutterFlowTheme.bodyText1,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
