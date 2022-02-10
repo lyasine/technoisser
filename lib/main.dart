@@ -7,7 +7,7 @@ import 'auth/auth_util.dart';
 
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/internationalization.dart';
-import 'package:techno_isser/home_screen/home_screen_widget.dart';
+import 'package:techno_isser/login_screen/login_screen_widget.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home_screen/home_screen_widget.dart';
@@ -79,7 +79,7 @@ class _MyAppState extends State<MyApp> {
             )
           : currentUser.loggedIn
               ? NavBarPage()
-              : HomeScreenWidget(),
+              : LoginScreenWidget(),
     );
   }
 }
@@ -95,7 +95,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPage = 'LoginScreen';
+  String _currentPage = 'HomeScreen';
 
   @override
   void initState() {
