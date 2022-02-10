@@ -21,6 +21,13 @@ class _PostScreenWidgetState extends State<PostScreenWidget> {
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.primaryColor,
         automaticallyImplyLeading: true,
+        title: Text(
+          'All Posts',
+          style: FlutterFlowTheme.title1.override(
+            fontFamily: 'Poppins',
+            color: FlutterFlowTheme.tertiaryColor,
+          ),
+        ),
         actions: [],
         centerTitle: true,
         elevation: 4,
@@ -69,6 +76,7 @@ class _PostScreenWidgetState extends State<PostScreenWidget> {
                                 EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
