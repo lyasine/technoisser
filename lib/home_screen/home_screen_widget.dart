@@ -2,6 +2,7 @@ import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../login_screen/login_screen_widget.dart';
 import '../post_screen/post_screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -341,30 +342,43 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                               child: Padding(
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      Icons.stacked_line_chart_rounded,
-                                      color: Color(0xFF1E2429),
-                                      size: 40,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 8, 0, 0),
-                                      child: Text(
-                                        'Activity',
-                                        style:
-                                            FlutterFlowTheme.bodyText1.override(
-                                          fontFamily: 'Lexend Deca',
-                                          color: Color(0xFF090F13),
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.normal,
+                                child: InkWell(
+                                  onTap: () async {
+                                    await signOut();
+                                    await Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            LoginScreenWidget(),
+                                      ),
+                                      (r) => false,
+                                    );
+                                  },
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      FaIcon(
+                                        FontAwesomeIcons.signOutAlt,
+                                        color: Color(0xFF1E2429),
+                                        size: 40,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 8, 0, 0),
+                                        child: Text(
+                                          'Sign out',
+                                          style: FlutterFlowTheme.bodyText1
+                                              .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Color(0xFF090F13),
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.normal,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
