@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../home_screen/home_screen_widget.dart';
 import '../post_screen/post_screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -242,13 +243,15 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                         return;
                       }
 
-                      await Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => LoginScreenWidget(),
-                        ),
-                        (r) => false,
-                      );
+                      if (currentUserEmailVerified) {
+                        await Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomeScreenWidget(),
+                          ),
+                          (r) => false,
+                        );
+                      }
                     },
                     text: 'Login',
                     options: FFButtonOptions(
@@ -295,17 +298,21 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                             size: 20,
                           ),
                           onPressed: () async {
-                            final user = await signInWithGoogle(context);
-                            if (user == null) {
-                              return;
+                            if (currentUserEmailVerified) {
+                              final user = await signInWithGoogle(context);
+                              if (user == null) {
+                                return;
+                              }
                             }
-                            await Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LoginScreenWidget(),
-                              ),
-                              (r) => false,
-                            );
+                            if (currentUserEmailVerified) {
+                              await Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginScreenWidget(),
+                                ),
+                                (r) => false,
+                              );
+                            }
                           },
                         ),
                       ],
