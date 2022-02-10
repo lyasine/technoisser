@@ -10,10 +10,5 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../auth/auth_util.dart';
 
 int getTotalRequests() {
-  // Add your function code here!
-  // get total requests
-  final totalRequestSnapshot =
-      FirebaseFirestore.instance.collection('posts').snapshots();
-  print(totalRequestSnapshot.length);
-  return totalRequestSnapshot.length as int;
+  return 1;
 }
