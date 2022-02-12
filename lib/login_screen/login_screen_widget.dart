@@ -71,12 +71,12 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                           alignment: AlignmentDirectional(-1, 0),
                           child: Text(
                             'Sign In',
-                            style: FlutterFlowTheme.title2.override(
-                              fontFamily: 'Lexend Deca',
-                              color: Color(0xFF090F13),
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: FlutterFlowTheme.of(context).title2.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF090F13),
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.bold,
+                                ),
                           ),
                         ),
                         InkWell(
@@ -108,12 +108,13 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                       children: [
                         Text(
                           'Get started by login into TechnoIsser App',
-                          style: FlutterFlowTheme.bodyText2.override(
-                            fontFamily: 'Lexend Deca',
-                            color: Color(0xFF57636C),
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal,
-                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyText2.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: Color(0xFF57636C),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.normal,
+                                  ),
                         ),
                       ],
                     ),
@@ -125,19 +126,21 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Your email address...',
-                        labelStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Lexend Deca',
-                          color: Color(0xFF57636C),
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal,
-                        ),
+                        labelStyle:
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF57636C),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
                         hintText: 'Enter your email...',
-                        hintStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Lexend Deca',
-                          color: Color(0xFF57636C),
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal,
-                        ),
+                        hintStyle:
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF57636C),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0xFFDBE2E7),
@@ -157,12 +160,12 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                         contentPadding:
                             EdgeInsetsDirectional.fromSTEB(24, 24, 20, 24),
                       ),
-                      style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Lexend Deca',
-                        color: Color(0xFF1D2429),
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                      ),
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: Color(0xFF1D2429),
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                          ),
                     ),
                   ),
                   Padding(
@@ -172,19 +175,21 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                       obscureText: !passwordVisibility,
                       decoration: InputDecoration(
                         labelText: 'Password',
-                        labelStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Lexend Deca',
-                          color: Color(0xFF57636C),
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal,
-                        ),
+                        labelStyle:
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF57636C),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
                         hintText: 'Enter your email...',
-                        hintStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Lexend Deca',
-                          color: Color(0xFF57636C),
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal,
-                        ),
+                        hintStyle:
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF57636C),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0xFFDBE2E7),
@@ -216,12 +221,12 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                           ),
                         ),
                       ),
-                      style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Lexend Deca',
-                        color: Color(0xFF1D2429),
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                      ),
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: Color(0xFF1D2429),
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                          ),
                     ),
                   ),
                 ],
@@ -261,12 +266,13 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                       width: 150,
                       height: 50,
                       color: Color(0xFF090F13),
-                      textStyle: FlutterFlowTheme.subtitle2.override(
-                        fontFamily: 'Lexend Deca',
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      textStyle:
+                          FlutterFlowTheme.of(context).subtitle2.override(
+                                fontFamily: 'Lexend Deca',
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
                       elevation: 3,
                       borderSide: BorderSide(
                         color: Colors.transparent,

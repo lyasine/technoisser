@@ -21,7 +21,7 @@ class _RequestsScreenWidgetState extends State<RequestsScreenWidget> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.primaryColor,
+        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: true,
         title: Row(
           mainAxisSize: MainAxisSize.max,
@@ -30,16 +30,16 @@ class _RequestsScreenWidgetState extends State<RequestsScreenWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
               child: Icon(
                 Icons.hearing_outlined,
-                color: FlutterFlowTheme.tertiaryColor,
+                color: FlutterFlowTheme.of(context).tertiaryColor,
                 size: 30,
               ),
             ),
             Text(
               'All Requests',
-              style: FlutterFlowTheme.title1.override(
-                fontFamily: 'Poppins',
-                color: FlutterFlowTheme.tertiaryColor,
-              ),
+              style: FlutterFlowTheme.of(context).title1.override(
+                    fontFamily: 'Poppins',
+                    color: FlutterFlowTheme.of(context).tertiaryColor,
+                  ),
             ),
           ],
         ),
@@ -57,11 +57,11 @@ class _RequestsScreenWidgetState extends State<RequestsScreenWidget> {
             ),
           );
         },
-        backgroundColor: FlutterFlowTheme.primaryColor,
+        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         elevation: 8,
         child: Icon(
           Icons.add,
-          color: FlutterFlowTheme.tertiaryColor,
+          color: FlutterFlowTheme.of(context).tertiaryColor,
           size: 24,
         ),
       ),
@@ -80,7 +80,7 @@ class _RequestsScreenWidgetState extends State<RequestsScreenWidget> {
                       width: 50,
                       height: 50,
                       child: CircularProgressIndicator(
-                        color: FlutterFlowTheme.primaryColor,
+                        color: FlutterFlowTheme.of(context).primaryColor,
                       ),
                     ),
                   );
@@ -115,7 +115,7 @@ class _RequestsScreenWidgetState extends State<RequestsScreenWidget> {
                             children: [
                               Text(
                                 listViewPostsRecord.title,
-                                style: FlutterFlowTheme.title1,
+                                style: FlutterFlowTheme.of(context).title1,
                               ),
                               Padding(
                                 padding:
@@ -129,21 +129,25 @@ class _RequestsScreenWidgetState extends State<RequestsScreenWidget> {
                                           0, 0, 20, 0),
                                       child: Text(
                                         listViewPostsRecord.phone,
-                                        style:
-                                            FlutterFlowTheme.bodyText1.override(
-                                          fontFamily: 'Poppins',
-                                          color:
-                                              FlutterFlowTheme.secondaryColor,
-                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryColor,
+                                            ),
                                       ),
                                     ),
                                     Text(
                                       listViewPostsRecord.email,
-                                      style:
-                                          FlutterFlowTheme.bodyText1.override(
-                                        fontFamily: 'Poppins',
-                                        color: FlutterFlowTheme.primaryColor,
-                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryColor,
+                                          ),
                                     ),
                                   ],
                                 ),

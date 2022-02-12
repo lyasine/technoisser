@@ -53,7 +53,7 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
               width: 50,
               height: 50,
               child: CircularProgressIndicator(
-                color: FlutterFlowTheme.primaryColor,
+                color: FlutterFlowTheme.of(context).primaryColor,
               ),
             ),
           );
@@ -71,7 +71,7 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
         return Scaffold(
           key: scaffoldKey,
           appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.primaryColor,
+            backgroundColor: FlutterFlowTheme.of(context).primaryColor,
             automaticallyImplyLeading: true,
             title: Row(
               mainAxisSize: MainAxisSize.max,
@@ -80,16 +80,16 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
                   child: Icon(
                     Icons.hearing_rounded,
-                    color: FlutterFlowTheme.tertiaryColor,
+                    color: FlutterFlowTheme.of(context).tertiaryColor,
                     size: 30,
                   ),
                 ),
                 Text(
                   'New Request',
-                  style: FlutterFlowTheme.title1.override(
-                    fontFamily: 'Poppins',
-                    color: FlutterFlowTheme.tertiaryColor,
-                  ),
+                  style: FlutterFlowTheme.of(context).title1.override(
+                        fontFamily: 'Poppins',
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
+                      ),
                 ),
                 FlutterFlowIconButton(
                   borderColor: Colors.transparent,
@@ -98,7 +98,7 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
                   buttonSize: 60,
                   icon: Icon(
                     Icons.done,
-                    color: FlutterFlowTheme.tertiaryColor,
+                    color: FlutterFlowTheme.of(context).tertiaryColor,
                     size: 30,
                   ),
                   onPressed: () {
@@ -150,7 +150,7 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
                               ),
                             ),
                           ),
-                          style: FlutterFlowTheme.bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyText1,
                         ),
                       ),
                       Padding(
@@ -160,7 +160,7 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
                           children: [
                             Text(
                               'Type : ',
-                              style: FlutterFlowTheme.bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyText1,
                             ),
                             Padding(
                               padding:
@@ -175,7 +175,8 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
                                         width: 50,
                                         height: 50,
                                         child: CircularProgressIndicator(
-                                          color: FlutterFlowTheme.primaryColor,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
                                         ),
                                       ),
                                     );
@@ -192,11 +193,12 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
                                         setState(() => dropDownValue = val),
                                     width: 180,
                                     height: 50,
-                                    textStyle:
-                                        FlutterFlowTheme.bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                    ),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: Colors.black,
+                                        ),
                                     hintText: 'Please select...',
                                     fillColor: Colors.white,
                                     elevation: 2,
@@ -241,10 +243,11 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
                               ),
                             ),
                           ),
-                          style: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'Poppins',
-                            lineHeight: 5,
-                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Poppins',
+                                    lineHeight: 5,
+                                  ),
                           keyboardType: TextInputType.multiline,
                         ),
                       ),
@@ -276,7 +279,7 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
                               ),
                             ),
                           ),
-                          style: FlutterFlowTheme.bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyText1,
                         ),
                       ),
                       Padding(
@@ -307,7 +310,7 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
                               ),
                             ),
                           ),
-                          style: FlutterFlowTheme.bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyText1,
                         ),
                       ),
                       Padding(
@@ -338,7 +341,7 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
                               ),
                             ),
                           ),
-                          style: FlutterFlowTheme.bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyText1,
                         ),
                       ),
                       Container(
@@ -373,7 +376,8 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
                                     context: context,
                                     allowPhoto: true,
                                     backgroundColor:
-                                        FlutterFlowTheme.tertiaryColor,
+                                        FlutterFlowTheme.of(context)
+                                            .tertiaryColor,
                                     textColor: Color(0xFF1B1412),
                                   );
                                   if (selectedMedia != null &&
@@ -440,11 +444,12 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
                           options: FFButtonOptions(
                             width: 130,
                             height: 40,
-                            color: FlutterFlowTheme.primaryColor,
-                            textStyle: FlutterFlowTheme.subtitle2.override(
-                              fontFamily: 'Poppins',
-                              color: Colors.white,
-                            ),
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                            textStyle:
+                                FlutterFlowTheme.of(context).subtitle2.override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                    ),
                             borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1,

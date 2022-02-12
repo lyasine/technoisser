@@ -36,7 +36,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
               width: 50,
               height: 50,
               child: CircularProgressIndicator(
-                color: FlutterFlowTheme.primaryColor,
+                color: FlutterFlowTheme.of(context).primaryColor,
               ),
             ),
           );
@@ -47,7 +47,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
           backgroundColor: Color(0xFFF5F5F5),
           body: SafeArea(
             child: StreamBuilder<UsersRecord>(
-              stream: UsersRecord.getDocument(widget.userDetails),
+              stream: UsersRecord.getDocument(currentUserReference),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
                 if (!snapshot.hasData) {
@@ -56,7 +56,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                       width: 50,
                       height: 50,
                       child: CircularProgressIndicator(
-                        color: FlutterFlowTheme.primaryColor,
+                        color: FlutterFlowTheme.of(context).primaryColor,
                       ),
                     ),
                   );
@@ -112,26 +112,30 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                     children: [
                                       Text(
                                         'Welcome,',
-                                        style: FlutterFlowTheme.title3.override(
-                                          fontFamily: 'Lexend Deca',
-                                          color: Color(0xFF1E2429),
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .title3
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Color(0xFF1E2429),
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             4, 0, 0, 0),
                                         child: Text(
-                                          columnUsersRecord.email,
-                                          style:
-                                              FlutterFlowTheme.title3.override(
-                                            fontFamily: 'Lexend Deca',
-                                            color:
-                                                FlutterFlowTheme.primaryColor,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                          columnUsersRecord.displayName,
+                                          style: FlutterFlowTheme.of(context)
+                                              .title3
+                                              .override(
+                                                fontFamily: 'Lexend Deca',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                         ),
                                       ),
                                     ],
@@ -141,13 +145,14 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                         0, 4, 0, 0),
                                     child: Text(
                                       'Your latest updates are below.',
-                                      style:
-                                          FlutterFlowTheme.bodyText1.override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: Color(0xFF090F13),
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.normal,
-                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Color(0xFF090F13),
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.normal,
+                                          ),
                                     ),
                                   ),
                                 ],
@@ -187,13 +192,14 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                   children: [
                                     Text(
                                       'Quick Service',
-                                      style:
-                                          FlutterFlowTheme.bodyText1.override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: Color(0xFF090F13),
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.normal,
-                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Color(0xFF090F13),
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.normal,
+                                          ),
                                     ),
                                   ],
                                 ),
@@ -238,14 +244,16 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                                   .fromSTEB(0, 8, 0, 0),
                                               child: Text(
                                                 'Transfer',
-                                                style: FlutterFlowTheme
+                                                style: FlutterFlowTheme.of(
+                                                        context)
                                                     .bodyText1
                                                     .override(
-                                                  fontFamily: 'Lexend Deca',
-                                                  color: Color(0xFF090F13),
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
+                                                      fontFamily: 'Lexend Deca',
+                                                      color: Color(0xFF090F13),
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                    ),
                                               ),
                                             ),
                                           ],
@@ -296,15 +304,18 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                                     .fromSTEB(0, 8, 0, 0),
                                                 child: Text(
                                                   'Sign out',
-                                                  style: FlutterFlowTheme
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyText1
                                                       .override(
-                                                    fontFamily: 'Lexend Deca',
-                                                    color: Color(0xFF090F13),
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                                        fontFamily:
+                                                            'Lexend Deca',
+                                                        color:
+                                                            Color(0xFF090F13),
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                                 ),
                                               ),
                                             ],
@@ -349,22 +360,27 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                               Text(
                                                 homeScreenPostsRecordList.length
                                                     .toString(),
-                                                style: FlutterFlowTheme.title1,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .title1,
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(0, 8, 0, 0),
                                                 child: Text(
                                                   'Requests',
-                                                  style: FlutterFlowTheme
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyText1
                                                       .override(
-                                                    fontFamily: 'Lexend Deca',
-                                                    color: Color(0xFF090F13),
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                                        fontFamily:
+                                                            'Lexend Deca',
+                                                        color:
+                                                            Color(0xFF090F13),
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                                 ),
                                               ),
                                             ],
@@ -383,13 +399,14 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                   children: [
                                     Text(
                                       'Latest Requests',
-                                      style:
-                                          FlutterFlowTheme.bodyText1.override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: Color(0xFF090F13),
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.normal,
-                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Color(0xFF090F13),
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.normal,
+                                          ),
                                     ),
                                   ],
                                 ),
@@ -421,8 +438,8 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                                   8, 8, 8, 8),
                                           child: Icon(
                                             Icons.monetization_on_rounded,
-                                            color:
-                                                FlutterFlowTheme.primaryColor,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryColor,
                                             size: 24,
                                           ),
                                         ),
@@ -441,27 +458,31 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                           children: [
                                             Text(
                                               'Go Far Rewards',
-                                              style: FlutterFlowTheme.subtitle1
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .subtitle1
                                                   .override(
-                                                fontFamily: 'Lexend Deca',
-                                                color: Color(0xFF1E2429),
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w500,
-                                              ),
+                                                    fontFamily: 'Lexend Deca',
+                                                    color: Color(0xFF1E2429),
+                                                    fontSize: 18,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0, 4, 0, 0),
                                               child: Text(
                                                 'Income',
-                                                style: FlutterFlowTheme
+                                                style: FlutterFlowTheme.of(
+                                                        context)
                                                     .bodyText1
                                                     .override(
-                                                  fontFamily: 'Lexend Deca',
-                                                  color: Color(0xFF090F13),
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
+                                                      fontFamily: 'Lexend Deca',
+                                                      color: Color(0xFF090F13),
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                    ),
                                               ),
                                             ),
                                           ],
@@ -481,14 +502,16 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                           Text(
                                             '\$50.00',
                                             textAlign: TextAlign.end,
-                                            style: FlutterFlowTheme.subtitle2
+                                            style: FlutterFlowTheme.of(context)
+                                                .subtitle2
                                                 .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color:
-                                                  FlutterFlowTheme.primaryColor,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
+                                                  fontFamily: 'Lexend Deca',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryColor,
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
                                           ),
                                           Padding(
                                             padding:
@@ -497,13 +520,16 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                             child: Text(
                                               'Hello World',
                                               textAlign: TextAlign.end,
-                                              style: FlutterFlowTheme.bodyText1
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyText1
                                                   .override(
-                                                fontFamily: 'Lexend Deca',
-                                                color: Color(0xFF090F13),
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.normal,
-                                              ),
+                                                    fontFamily: 'Lexend Deca',
+                                                    color: Color(0xFF090F13),
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                  ),
                                             ),
                                           ),
                                         ],
@@ -544,7 +570,8 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                             child: Icon(
                                               Icons.monetization_on_rounded,
                                               color:
-                                                  FlutterFlowTheme.primaryColor,
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryColor,
                                               size: 24,
                                             ),
                                           ),
@@ -564,29 +591,34 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                             children: [
                                               Text(
                                                 'Go Far Rewards',
-                                                style: FlutterFlowTheme
+                                                style: FlutterFlowTheme.of(
+                                                        context)
                                                     .subtitle1
                                                     .override(
-                                                  fontFamily: 'Lexend Deca',
-                                                  color: Color(0xFF1E2429),
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
+                                                      fontFamily: 'Lexend Deca',
+                                                      color: Color(0xFF1E2429),
+                                                      fontSize: 18,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(0, 4, 0, 0),
                                                 child: Text(
                                                   'Income',
-                                                  style: FlutterFlowTheme
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyText1
                                                       .override(
-                                                    fontFamily: 'Lexend Deca',
-                                                    color: Color(0xFF090F13),
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                                        fontFamily:
+                                                            'Lexend Deca',
+                                                        color:
+                                                            Color(0xFF090F13),
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                                 ),
                                               ),
                                             ],
@@ -606,14 +638,17 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                             Text(
                                               '\$50.00',
                                               textAlign: TextAlign.end,
-                                              style: FlutterFlowTheme.subtitle2
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .subtitle2
                                                   .override(
-                                                fontFamily: 'Lexend Deca',
-                                                color: FlutterFlowTheme
-                                                    .primaryColor,
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w500,
-                                              ),
+                                                    fontFamily: 'Lexend Deca',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryColor,
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
@@ -621,14 +656,16 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                               child: Text(
                                                 'Hello World',
                                                 textAlign: TextAlign.end,
-                                                style: FlutterFlowTheme
+                                                style: FlutterFlowTheme.of(
+                                                        context)
                                                     .bodyText1
                                                     .override(
-                                                  fontFamily: 'Lexend Deca',
-                                                  color: Color(0xFF090F13),
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
+                                                      fontFamily: 'Lexend Deca',
+                                                      color: Color(0xFF090F13),
+                                                      fontSize: 12,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                    ),
                                               ),
                                             ),
                                           ],
@@ -670,7 +707,8 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                             child: Icon(
                                               Icons.monetization_on_rounded,
                                               color:
-                                                  FlutterFlowTheme.primaryColor,
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryColor,
                                               size: 24,
                                             ),
                                           ),
@@ -690,29 +728,34 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                             children: [
                                               Text(
                                                 'Go Far Rewards',
-                                                style: FlutterFlowTheme
+                                                style: FlutterFlowTheme.of(
+                                                        context)
                                                     .subtitle1
                                                     .override(
-                                                  fontFamily: 'Lexend Deca',
-                                                  color: Color(0xFF1E2429),
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
+                                                      fontFamily: 'Lexend Deca',
+                                                      color: Color(0xFF1E2429),
+                                                      fontSize: 18,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(0, 4, 0, 0),
                                                 child: Text(
                                                   'Income',
-                                                  style: FlutterFlowTheme
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyText1
                                                       .override(
-                                                    fontFamily: 'Lexend Deca',
-                                                    color: Color(0xFF090F13),
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                                        fontFamily:
+                                                            'Lexend Deca',
+                                                        color:
+                                                            Color(0xFF090F13),
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                                 ),
                                               ),
                                             ],
@@ -732,14 +775,17 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                             Text(
                                               '\$50.00',
                                               textAlign: TextAlign.end,
-                                              style: FlutterFlowTheme.subtitle2
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .subtitle2
                                                   .override(
-                                                fontFamily: 'Lexend Deca',
-                                                color: FlutterFlowTheme
-                                                    .primaryColor,
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w500,
-                                              ),
+                                                    fontFamily: 'Lexend Deca',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryColor,
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
@@ -747,14 +793,16 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                               child: Text(
                                                 'Hello World',
                                                 textAlign: TextAlign.end,
-                                                style: FlutterFlowTheme
+                                                style: FlutterFlowTheme.of(
+                                                        context)
                                                     .bodyText1
                                                     .override(
-                                                  fontFamily: 'Lexend Deca',
-                                                  color: Color(0xFF090F13),
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
+                                                      fontFamily: 'Lexend Deca',
+                                                      color: Color(0xFF090F13),
+                                                      fontSize: 12,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                    ),
                                               ),
                                             ),
                                           ],

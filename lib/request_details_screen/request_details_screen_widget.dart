@@ -36,7 +36,7 @@ class _RequestDetailsScreenWidgetState
               width: 50,
               height: 50,
               child: CircularProgressIndicator(
-                color: FlutterFlowTheme.primaryColor,
+                color: FlutterFlowTheme.of(context).primaryColor,
               ),
             ),
           );
@@ -45,24 +45,24 @@ class _RequestDetailsScreenWidgetState
         return Scaffold(
           key: scaffoldKey,
           appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.primaryColor,
+            backgroundColor: FlutterFlowTheme.of(context).primaryColor,
             automaticallyImplyLeading: true,
             title: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Icon(
                   Icons.hearing_rounded,
-                  color: FlutterFlowTheme.tertiaryColor,
+                  color: FlutterFlowTheme.of(context).tertiaryColor,
                   size: 30,
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                   child: Text(
                     'Request Details',
-                    style: FlutterFlowTheme.title1.override(
-                      fontFamily: 'Poppins',
-                      color: FlutterFlowTheme.tertiaryColor,
-                    ),
+                    style: FlutterFlowTheme.of(context).title1.override(
+                          fontFamily: 'Poppins',
+                          color: FlutterFlowTheme.of(context).tertiaryColor,
+                        ),
                   ),
                 ),
               ],
@@ -97,7 +97,8 @@ class _RequestDetailsScreenWidgetState
                                   width: 50,
                                   height: 50,
                                   child: CircularProgressIndicator(
-                                    color: FlutterFlowTheme.primaryColor,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryColor,
                                   ),
                                 ),
                               );
@@ -109,14 +110,14 @@ class _RequestDetailsScreenWidgetState
                               children: [
                                 Text(
                                   'Type',
-                                  style: FlutterFlowTheme.bodyText1,
+                                  style: FlutterFlowTheme.of(context).bodyText1,
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 10, 0, 0),
                                   child: Text(
                                     columnRequestTypesRecord.title,
-                                    style: FlutterFlowTheme.title2,
+                                    style: FlutterFlowTheme.of(context).title2,
                                   ),
                                 ),
                               ],
@@ -132,14 +133,14 @@ class _RequestDetailsScreenWidgetState
                           children: [
                             Text(
                               'Title',
-                              style: FlutterFlowTheme.bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyText1,
                             ),
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                               child: Text(
                                 requestDetailsScreenPostsRecord.title,
-                                style: FlutterFlowTheme.title2,
+                                style: FlutterFlowTheme.of(context).title2,
                               ),
                             ),
                           ],
@@ -153,14 +154,14 @@ class _RequestDetailsScreenWidgetState
                           children: [
                             Text(
                               'Description',
-                              style: FlutterFlowTheme.bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyText1,
                             ),
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                               child: Text(
                                 requestDetailsScreenPostsRecord.description,
-                                style: FlutterFlowTheme.title2,
+                                style: FlutterFlowTheme.of(context).title2,
                               ),
                             ),
                           ],
@@ -174,14 +175,14 @@ class _RequestDetailsScreenWidgetState
                           children: [
                             Text(
                               'Name',
-                              style: FlutterFlowTheme.bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyText1,
                             ),
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                               child: Text(
                                 requestDetailsScreenPostsRecord.name,
-                                style: FlutterFlowTheme.title2,
+                                style: FlutterFlowTheme.of(context).title2,
                               ),
                             ),
                           ],
@@ -195,14 +196,14 @@ class _RequestDetailsScreenWidgetState
                           children: [
                             Text(
                               'Email Address',
-                              style: FlutterFlowTheme.bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyText1,
                             ),
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                               child: Text(
                                 requestDetailsScreenPostsRecord.email,
-                                style: FlutterFlowTheme.title2,
+                                style: FlutterFlowTheme.of(context).title2,
                               ),
                             ),
                           ],
@@ -216,14 +217,14 @@ class _RequestDetailsScreenWidgetState
                           children: [
                             Text(
                               'Phone',
-                              style: FlutterFlowTheme.bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyText1,
                             ),
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                               child: Text(
                                 requestDetailsScreenPostsRecord.phone,
-                                style: FlutterFlowTheme.title2,
+                                style: FlutterFlowTheme.of(context).title2,
                               ),
                             ),
                           ],
@@ -274,10 +275,12 @@ class _RequestDetailsScreenWidgetState
                               width: 130,
                               height: 40,
                               color: Colors.red,
-                              textStyle: FlutterFlowTheme.subtitle2.override(
-                                fontFamily: 'Poppins',
-                                color: Colors.white,
-                              ),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                  ),
                               elevation: 10,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
