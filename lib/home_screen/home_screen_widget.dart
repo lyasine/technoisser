@@ -104,15 +104,17 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                               child: Padding(
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
-                                child: Container(
-                                  width: 60,
-                                  height: 60,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.asset(
-                                    'assets/images/avatar.png',
+                                child: AuthUserStreamWidget(
+                                  child: Container(
+                                    width: 60,
+                                    height: 60,
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Image.network(
+                                      currentUserPhoto,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -143,17 +145,20 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         4, 0, 0, 0),
-                                    child: Text(
-                                      currentUserEmail,
-                                      style: FlutterFlowTheme.of(context)
-                                          .title3
-                                          .override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                    child: AuthUserStreamWidget(
+                                      child: Text(
+                                        currentUserDisplayName,
+                                        style: FlutterFlowTheme.of(context)
+                                            .title3
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryColor,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                      ),
                                     ),
                                   ),
                                 ],
