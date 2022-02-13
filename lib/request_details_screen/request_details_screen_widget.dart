@@ -1,4 +1,5 @@
 import '../backend/backend.dart';
+import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -64,6 +65,51 @@ class _RequestDetailsScreenWidgetState
                           color: FlutterFlowTheme.of(context).tertiaryColor,
                         ),
                   ),
+                ),
+                FlutterFlowIconButton(
+                  borderColor: Colors.transparent,
+                  borderRadius: 30,
+                  borderWidth: 1,
+                  buttonSize: 60,
+                  icon: Icon(
+                    Icons.delete_forever,
+                    color: Color(0xFFFAFAFA),
+                    size: 30,
+                  ),
+                  onPressed: () async {
+                    await showDialog(
+                      context: context,
+                      builder: (alertDialogContext) {
+                        return AlertDialog(
+                          title: Text('Confirmation'),
+                          content:
+                              Text('Are you sure to delete this request ?'),
+                          actions: [
+                            TextButton(
+                              onPressed: () =>
+                                  Navigator.pop(alertDialogContext),
+                              child: Text('Cancel'),
+                            ),
+                            TextButton(
+                              onPressed: () async {
+                                Navigator.pop(alertDialogContext);
+                                await widget.requestDetail.delete();
+                                ;
+                              },
+                              child: Text('Confirm'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            NavBarPage(initialPage: 'RequestsScreen'),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
@@ -234,7 +280,7 @@ class _RequestDetailsScreenWidgetState
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 10, 0),
                           child: Image.network(
                             valueOrDefault<String>(
                               requestDetailsScreenPostsRecord.photoUrl,

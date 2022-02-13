@@ -117,6 +117,10 @@ class _RequestsScreenWidgetState extends State<RequestsScreenWidget> {
                                 listViewPostsRecord.title,
                                 style: FlutterFlowTheme.of(context).title1,
                               ),
+                              Text(
+                                listViewPostsRecord.name,
+                                style: FlutterFlowTheme.of(context).title3,
+                              ),
                               Padding(
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
@@ -124,6 +128,16 @@ class _RequestsScreenWidgetState extends State<RequestsScreenWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 10, 0),
+                                      child: Text(
+                                        dateTimeFormat('d/M h:mm a',
+                                            listViewPostsRecord.createDate),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1,
+                                      ),
+                                    ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 0, 20, 0),

@@ -107,20 +107,17 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         4, 0, 0, 0),
-                                    child: AuthUserStreamWidget(
-                                      child: Text(
-                                        currentUserDisplayName,
-                                        style: FlutterFlowTheme.of(context)
-                                            .title3
-                                            .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryColor,
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                      ),
+                                    child: Text(
+                                      currentUserEmail,
+                                      style: FlutterFlowTheme.of(context)
+                                          .title3
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryColor,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                     ),
                                   ),
                                 ],
