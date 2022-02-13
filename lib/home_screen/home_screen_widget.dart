@@ -1,5 +1,7 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
+import '../edit_profile_screen/edit_profile_screen_widget.dart';
+import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../login_screen/login_screen_widget.dart';
@@ -44,6 +46,40 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
         List<PostsRecord> homeScreenPostsRecordList = snapshot.data;
         return Scaffold(
           key: scaffoldKey,
+          appBar: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+            automaticallyImplyLeading: true,
+            title: Text(
+              'TechnoIsser',
+              style: FlutterFlowTheme.of(context).title1.override(
+                    fontFamily: 'Poppins',
+                    color: Color(0xFFFAFAFA),
+                  ),
+            ),
+            actions: [
+              FlutterFlowIconButton(
+                borderColor: Colors.transparent,
+                borderRadius: 30,
+                borderWidth: 1,
+                buttonSize: 60,
+                icon: Icon(
+                  Icons.settings_sharp,
+                  color: Color(0xFFFAFAFA),
+                  size: 30,
+                ),
+                onPressed: () async {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EditProfileScreenWidget(),
+                    ),
+                  );
+                },
+              ),
+            ],
+            centerTitle: true,
+            elevation: 4,
+          ),
           backgroundColor: Color(0xFFF5F5F5),
           body: SafeArea(
             child: SingleChildScrollView(
