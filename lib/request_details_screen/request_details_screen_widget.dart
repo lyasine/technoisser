@@ -236,7 +236,10 @@ class _RequestDetailsScreenWidgetState
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
                           child: Image.network(
-                            'https://picsum.photos/seed/773/600',
+                            valueOrDefault<String>(
+                              requestDetailsScreenPostsRecord.photoUrl,
+                              'https://dummyimage.com/600x400/000/fff',
+                            ),
                             width: double.infinity,
                             height: 200,
                             fit: BoxFit.cover,
