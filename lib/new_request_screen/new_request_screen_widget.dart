@@ -353,9 +353,12 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
                         child: Stack(
                           children: [
                             Image.network(
-                              uploadedFileUrl,
-                              width: double.infinity,
-                              height: double.infinity,
+                              valueOrDefault<String>(
+                                uploadedFileUrl,
+                                'https://dummyimage.com/600x400/000/fff',
+                              ),
+                              width: 600,
+                              height: 400,
                               fit: BoxFit.cover,
                             ),
                             Align(
@@ -367,13 +370,15 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
                                 buttonSize: 60,
                                 icon: Icon(
                                   Icons.image_outlined,
-                                  color: Color(0x81000000),
+                                  color: Color(0xFFFAFAFA),
                                   size: 30,
                                 ),
                                 onPressed: () async {
                                   final selectedMedia =
                                       await selectMediaWithSourceBottomSheet(
                                     context: context,
+                                    maxWidth: 600.00,
+                                    maxHeight: 400.00,
                                     allowPhoto: true,
                                     backgroundColor:
                                         FlutterFlowTheme.of(context)
@@ -427,6 +432,7 @@ class _NewRequestScreenWidgetState extends State<NewRequestScreenWidget> {
                               name: textController5.text,
                               type:
                                   newRequestScreenRequestTypesRecord.reference,
+                              photoUrl: uploadedFileUrl,
                             );
                             await PostsRecord.collection
                                 .doc()

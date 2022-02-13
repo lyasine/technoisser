@@ -32,6 +32,10 @@ abstract class PostsRecord implements Built<PostsRecord, PostsRecordBuilder> {
   DocumentReference get type;
 
   @nullable
+  @BuiltValueField(wireName: 'photo_url')
+  String get photoUrl;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -40,7 +44,8 @@ abstract class PostsRecord implements Built<PostsRecord, PostsRecordBuilder> {
     ..description = ''
     ..phone = ''
     ..email = ''
-    ..name = '';
+    ..name = ''
+    ..photoUrl = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('posts');
@@ -71,6 +76,7 @@ Map<String, dynamic> createPostsRecordData({
   String email,
   String name,
   DocumentReference type,
+  String photoUrl,
 }) =>
     serializers.toFirestore(
         PostsRecord.serializer,
@@ -81,4 +87,5 @@ Map<String, dynamic> createPostsRecordData({
           ..phone = phone
           ..email = email
           ..name = name
-          ..type = type));
+          ..type = type
+          ..photoUrl = photoUrl));
